@@ -1,9 +1,9 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import StudentCard from "../StudentCard/studentCard";
+import VictoryCard from "./Victory";
 function SetStudentsDuel({ students, showResult, displayCards }) {
-  const [firstMage, setFirstMage] = useState(
-    Math.floor(Math.random() * 10) + 0
-  );
+  const firstMage = Math.floor(Math.random() * 10) + 0;
+
   const [secondMage, setSecondMage] = useState(
     Math.floor(Math.random() * 10) + 0
   );
@@ -25,18 +25,17 @@ function SetStudentsDuel({ students, showResult, displayCards }) {
     }
   };
 
-  const [winner, SetWinner] = useState([]);
-
+  const [winner, SetWinner] = useState(0);
+  const [setWinner, setmages] = useState([firstMage, secondMage, thirdMage]);
   if (students.length > 6) {
     findTheSecondMage(students);
     findTheThirdMage(students);
-  }
-  if (
-    (displayCards == "display-none" && winner.length < 1) ||
-    (displayCards == "display-none" && winner.alive === false)
-  ) {
-    let arr = [students[firstMage], students[secondMage], students[thirdMage]];
-    SetWinner(arr[Math.floor(Math.random() * 2) + 0]);
+    if (
+      (winner !== firstMage && winner !== secondMage && winner !== thirdMage) ||
+      students[winner].alive === false
+    ) {
+      SetWinner(setWinner[Math.floor(Math.random() * 2) + 0]);
+    }
   }
 
   return (
@@ -55,8 +54,7 @@ function SetStudentsDuel({ students, showResult, displayCards }) {
             <div className="separador"></div>
           </div>
           <div className={showResult}>
-            <h1>{winner.name} Venceu o torneio!</h1>
-            <img src={winner.image} alt="" />
+            <VictoryCard student={students[winner]} />
           </div>
         </div>
       ) : (

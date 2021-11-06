@@ -1,6 +1,6 @@
 import gryffindor from "./houses-img/Gryffindor.png";
 import StudentActions from "../../StudentActions/studentActions";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 function GriffindorCard({ student }) {
   const [displayCard, SetDisplayCard] = useState("gryffindor-card");
   const [displayResult, SetDisplayResult] = useState("display-none");
@@ -12,7 +12,11 @@ function GriffindorCard({ student }) {
       <div onClick={() => {}} className={displayCard}>
         <div className="border-red">
           <h1>{student.name}</h1>
-          <img src={student.image} alt="" srcset="" />
+          <img
+            src={student.image.replace("http://", "https://")}
+            alt=""
+            srcset=""
+          />
         </div>
         <h2>{student.house}</h2>
         <img src={gryffindor} alt="" className="house" />

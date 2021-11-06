@@ -15,7 +15,11 @@ function GravestoneCard({ student }) {
   return (
     <div className="deadCardFull">
       <div className="mage-card-dead">
-        <img src={student.image} alt="" srcset="" />
+        <img
+          src={student.image.replace("http://", "https://")}
+          alt=""
+          srcset=""
+        />
         <h1>{student.name}</h1>
         <h2>
           {" "}

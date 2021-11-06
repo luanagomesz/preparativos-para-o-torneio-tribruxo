@@ -5,7 +5,11 @@ function HufflepuffCard({ student }) {
     <div className="hufflepuff-card">
       <div className="border-yellow">
         <h1>{student.name}</h1>
-        <img src={student.image} alt="" srcset="" />
+        <img
+          src={student.image.replace("http://", "https://")}
+          alt=""
+          srcset=""
+        />
       </div>
       <h2>{student.house}</h2>
       <img src={hufflepuff} alt="" className="house" />

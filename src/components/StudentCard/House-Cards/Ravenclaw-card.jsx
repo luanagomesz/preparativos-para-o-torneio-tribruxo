@@ -5,7 +5,11 @@ function RavenclawCard({ student }) {
     <div className="ravenclaw-card">
       <div className="border-blue">
         <h1>{student.name}</h1>
-        <img src={student.image} alt="" srcset="" />
+        <img
+          src={student.image.replace("http://", "https://")}
+          alt=""
+          srcset=""
+        />
       </div>
       <h2>{student.house}</h2>
       <img src={ravenclaw} alt="" className="house" />

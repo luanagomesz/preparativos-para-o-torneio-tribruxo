@@ -1,4 +1,4 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import GriffindorCard from "./House-Cards/Gryffindor-card";
 import SlytherynCard from "./House-Cards/Slytheryn-card";
 import HufflepuffCard from "./House-Cards/Hufflepuff-card";

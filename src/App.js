@@ -16,12 +16,13 @@ function App() {
   useEffect(() => {
     fetch("https://hp-api.herokuapp.com/api/characters/students")
       .then((response) => response.json())
-      .then((response) => filterStudents(response));
+      .then((response) => setStudents(response))
+      .then(() => filterStudents);
   }, []);
 
-  const filterStudents = (students) => {
+  const filterStudents = () => {
     setStudents(
-      students.filter(
+      Students.filter(
         (mage) => mage.house !== "" && mage.image !== "" && mage.alive !== ""
       )
     );
